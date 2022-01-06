@@ -3,14 +3,39 @@ on: push
 
 jobs:
   pester-test:
-    name: Lab 1 Test
+    name: Lab 1 Tests
     runs-on: windows-2019
     steps:
       - name: Check out repo        
         uses: actions/checkout@v2
       - run: |
           ./ICT_128_LAB_1.ps1
-          $hash = Get-FileHash .\test.txt
-          if ($hash.Hash -ne "3AAD09423841D0D34D624EA0942F30F9F4FE67D5C520D0273314005F2A91B81D") {
-            $Host.UI.WriteErrorLine("Question 1: Incorrect")
-          }
+      - run: |
+          ./hash.ps1 5A782696CDDD278A252FC28997EB56DCC76E779AA8AE28CAC67821A68692A8EC 1
+        if: always()
+      - run: ./hash.ps1 42817C432A683116970D4048F2DDF476FF8DFCA7A5D178BFA3A56679862E36AA 2
+        if: always()
+      - run: ./hash.ps1 95181F0FA13A6D78DA1C4B4B9D03C1C19269B5957D0C8B98E163467980D2D90B 3
+        if: always()
+      - run: ./hash.ps1 92961E9752250EFA971147344B22295DB32D7B75E940E0971E5FB34F21D0BC67 4
+        if: always()
+      - run: ./hash.ps1 AFA5842980AC1035CF5BBCB03B21B0A3CAB63F9D8472B606135358D0BC139FD0 5
+        if: always()
+      - run: |
+          ./hash.ps1 3B354D7CB10336A8CB6A465C67EF76A4C5844B05AA82DC8E2D88BC1E9698F33F 6
+        if: always()
+      - run: |          
+          ./hash.ps1 3A64BDE72B49998B29F85E04B89E4167A94609E47063D919076BAD2D634E6EE3 7
+        if: always()
+      - run: |
+          ./hash.ps1 17E10A53DCC46A6179A07B8E92746394BB015B8E74DEB05BE5E15B6C57D073EF 8
+        if: always()
+      - run: |
+          ./hash.ps1 8669CDAFE67C8A8D761C0F21596A4AEA7F933B5745BA0FED32AC7621E0BE0518 9
+        if: always()
+      - run: |
+          ./hash.ps1 2DD9964AA7C59C01362061846DA85DCF727BB9F7F25E6B1C67FF342E6EF8C69C 10
+        if: always()
+      - run: |
+          ./hash.ps1 1313BD0E5AC8108551DCCC8CC471AF06873488BC6A5131185423E6F67821A597 11
+        if: always()

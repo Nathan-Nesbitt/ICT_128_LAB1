@@ -10,3 +10,7 @@ jobs:
         uses: actions/checkout@v2
       - run: |
           ./ICT_128_LAB_1.ps1
+          $hash = Get-FileHash .\test.txt
+          if ($hash.Hash -ne "3AAD09423841D0D34D624EA0942F30F9F4FE67D5C520D0273314005F2A91B81D") {
+            $Host.UI.WriteErrorLine("Question 1: Incorrect")
+          }

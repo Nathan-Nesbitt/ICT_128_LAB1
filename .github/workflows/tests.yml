@@ -1,0 +1,12 @@
+name: Test Powershell
+on: push
+
+jobs:
+  pester-test:
+    name: Lab 1 Test
+    runs-on: windows-2019
+    steps:
+      - name: Check out repo        
+        uses: actions/checkout@v2
+      - run: |
+          ./ICT_128_LAB_1.ps1
